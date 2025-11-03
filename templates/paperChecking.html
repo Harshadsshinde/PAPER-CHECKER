@@ -1,254 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Welcome Login</title>
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-			crossorigin="anonymous"
-		/>
-		<link rel="stylesheet" href="../static/CSS/paperChecking.css" />
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
 
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<div class="cont">
-			<div class="sideBar">
-				<div
-					class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
-					style="width: 100%; height: 100%"
-				>
-					<a
-						href="/"
-						class="d-flex align-items-center mb-md-0 me-md-auto p-0 text-white text-decoration-none"
-					>
-						<img
-							src="../static/Images/login/logo1.png"
-							height="45%"
-							width="45%"
-							alt="login"
-						/>
-						<h1>Paper<span style="color: gold">Pro</span></h1>
-					</a>
-					<hr />
-					<ul class="nav nav-pills flex-column mb-auto">
-						<li class="nav-item">
-							<a href="/home" class="nav-link text-white" aria-current="page">
-								<svg class="bi pe-none me-2" width="16" height="16">
-									<use xlink:href="/home"></use>
-								</svg>
-								Home
-							</a>
-						</li>
-						<li>
-							<a href="/mytask" class="nav-link text-white">
-								<svg class="bi pe-none me-2" width="16" height="16">
-									<use xlink:href="/mytask"></use>
-								</svg>
-								My Tasks
-							</a>
-						</li>
-						<li>
-							<a href="/papercheck" class="nav-link active">
-								<svg class="bi pe-none me-2" width="16" height="16">
-									<use xlink:href="/papercheck"></use>
-								</svg>
-								Paper Check
-							</a>
-						</li>
-						<li>
-							<a href="#" class="nav-link text-white">
-								<svg class="bi pe-none me-2" width="16" height="16">
-									<use xlink:href="/checkedpaper"></use>
-								</svg>
-								Checked Papers
-							</a>
-						</li>
-						<li>
-							<a href="#" class="nav-link text-white">
-								<svg class="bi pe-none me-2" width="16" height="16">
-									<use xlink:href="/analysis"></use>
-								</svg>
-								Analysis
-							</a>
-						</li>
-						<li>
-							<a href="#" class="nav-link text-white">
-								<svg class="bi pe-none me-2" width="16" height="16">
-									<use xlink:href="/resources"></use>
-								</svg>
-								Resources
-							</a>
-						</li>
-					</ul>
-					<hr />
-					<div class="dropdown">
-						<a
-							href="#"
-							class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-							data-bs-toggle="dropdown"
-							aria-expanded="false"
-						>
-							<img
-								src="https://github.com/mdo.png"
-								alt=""
-								width="32"
-								height="32"
-								class="rounded-circle me-2"
-							/>
-							<strong>mdo</strong>
-						</a>
-						<ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-							<li><a class="dropdown-item" href="#">New project...</a></li>
-							<li><a class="dropdown-item" href="#">Settings</a></li>
-							<li><a class="dropdown-item" href="#">Profile</a></li>
-							<li><hr class="dropdown-divider" /></li>
-							<li><a class="dropdown-item" href="#">Sign out</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="content">
-				<div class="navbar">
-					<h1
-						style="
-							color: rgb(255, 255, 255);
-							margin-left: 2rem;
-							font-weight: 700;
-						"
-					>
-						Paper Checking
-					</h1>
-					<div id="datetime-box">
-						<p id="datetime"></p>
-					</div>
-				</div>
-				<div class="cont2">
-					<div
-						style="
-							color: rgb(0, 0, 0);
-							padding: 20px;
-							border-radius: 10px;
-							font-weight: 600;
-							font-size: 1.1rem;
-						"
-					>
-						<form>
-							<div>
-								<div
-									style="
-										border-radius: 10px;
-										color: rgb(255, 255, 255);
-										background-color: rgb(54, 54, 54);
-										padding: 20px;
-										font-weight: bolder;
-									"
-								>
-									<h1 style="font-weight: 600">Question Paper Info :</h1>
-								</div>
-								<div class="row row-cols-2">
-									<div class="col">
-										<label>Question Paper ID : </label> <br />
-										<input type="text" placeholder="    QID" name="queId"  />
+        body {
+            font-family: 'PT Serif', serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
 
-									</div>
-									<div class="col">
-										<label>Number of Section : </label>
-										<br />
-										<input type="text" placeholder="    No.Of Sections" name="sectionNo" />
-									</div>
-									<div class="col">
-										<label>Number of SubQuestions : </label>
-										<br />
-										<input type="text" placeholder="    No.Of SubQuestions" name="subquestionsNo" />
-									</div>
-									<div class="col">
-										<label>Upload Question Paper : </label>
-										<br />
-										<input type="file" name="file" placeholder="    QuesPDF" name="QuestionPdf" />
-									</div>
-								</div>
-							</div>
-							<br />
-							<br />
+        .cont {
+            display: flex;
+            min-height: 100vh;
+        }
 
-							<div>
-								<div
-									style="
-										border-radius: 10px;
-										color: rgb(255, 255, 255);
-										background-color: rgb(54, 54, 54);
-										padding: 20px;
-										font-weight: bolder;
-									"
-								>
-									<h1 style="font-weight: 600">Answer Paper Info :</h1>
-								</div>
-								<div class="row row-cols-2">
-									<div class="col">
-										<label>Answer Paper ID : </label> <br />
-										<input type="text" placeholder="    QID" name="AnsID" />
-									</div>
-									<div class="col">
-										<label>Choose Marking Pattern : </label>
-										<br />
-										<select name="pattern">
-											<option value="Pattern 1">Pattern1</option>
-											<option value="Pattern 2">Pattern2</option>
-											<option value="Pattern 3">Pattern3</option>
-										</select>
-									</div>
-									<div class="col">
-										<label>Upload Model Answers : </label>
-										<br />
-										<input type="file" name="file" placeholder="    Model Ans PDF" name="modelAns"/>
-									</div>
-									<div class="col">
-										<label>Upload Student AnswerPaper : </label>
-										<br />
-										<input
+        .sideBar {
+            width: 280px;
+            background-color: var(--primary-color);
+            color: white;
+        }
 
-											type="file"
-											name="file"
-											placeholder="    Ans PDF"
-											name="studentAns"
-										/>
-									</div>
-								</div>
-							</div>
-							<br />
-							<input
-								style="
-									width: 200px;
-									height: 50px;
-									border-radius: 10px;
-									margin-left: 30rem;
-									background-color: rgb(39, 148, 65);
-									font-size: 20px;
-									font-weight: 600;
-									color: white;
-								"
-								type="submit"
-								value="Check"
-							/>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-			crossorigin="anonymous"
-		></script>
-		<script src="/static/JS/dateTime.js"></script>
-	</body>
+        .navbar {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cont2 {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 2rem auto 0;
+        }
+
+        .submit-btn:hover {
+            background-color: #219653;
+        }
+
+        /* Report Modal Styles */
+        .modal-content {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .report-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .report-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .score-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .score-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .score-label {
+            text-align: center;
+            color: #666;
+        }
+
+        .progress {
+            height: 10px;
+            margin: 10px 0;
+        }
+
+        .check-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .check-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-status {
+            font-weight: bold;
+        }
+
+        .status-pass {
+            color: #27ae60;
+        }
+
+        .status-warning {
+            color: #f39c12;
+        }
+
+        .status-fail {
+            color: #e74c3c;
+        }
+
+        .report-footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .fake-checking-animation {
+            height: 4px;
+            background: linear-gradient(to right, #3498db, #2ecc71, #e74c3c);
+            border-radius: 2px;
+            margin: 1rem 0;
+            animation: checking 2s ease-in-out infinite;
+        }
+
+        @keyframes checking {
+            0% { width: 0%; }
+            50% { width: 100%; }
+            100% { width: 0%; }
+        }
+
+        .report-animation {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="sideBar">
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 100%; height: 100%">
+                <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto p-0 text-white text-decoration-none">
+                    <h1>Paper<span style="color: gold">Pro</span></h1>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/home" class="nav-link text-white" aria-current="page">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/home"></use></svg>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mytask" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/mytask"></use></svg>
+                            My Tasks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/papercheck" class="nav-link active">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/papercheck"></use></svg>
+                            Paper Check
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/checkedpaper" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/checkedpaper"></use></svg>
+                            Checked Papers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/analysis" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/analysis"></use></svg>
+                            Analysis
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/resources" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/resources"></use></svg>
+                            Resources
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong>aditya</strong>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="navbar">
+                <h1 style="color: rgb(255, 255, 255); margin-left: 2rem; font-weight: 700;">Paper Checking</h1>
+                <div id="datetime-box">
+                    <p id="datetime"></p>
+                </div>
+            </div>
+            <div class="cont2">
+                <div class="form-container">
+                    <form id="paperCheckForm">
+                        <div>
+                            <div class="section-header">
+                                <h1 style="font-weight: 600">Question Paper Info :</h1>
+                            </div>
+                            <div class="row row-cols-2">
+                                <div class="col">
+                                    <label>Question Paper ID : </label> <br>
+                                    <input type="text" placeholder="QID" name="queId" required>
+                                </div>
+                                <div class="col">
+                                    <label>Number of Section : </label>
+                                    <br>
+                                    <input type="number" placeholder="No.Of Sections" name="sectionNo" required>
+                                </div>
+                                <div class="col">
+                                    <label>Number of SubQuestions : </label>
+                                    <br>
+                                    <input type="number" placeholder="No.Of SubQuestions" name="subquestionsNo" required>
+                                </div>
+                                <div class="col">
+                                    <label>Upload Question Paper : </label>
+                                    <br>
+                                    <input type="file" name="file" placeholder="QuesPDF" name="QuestionPdf">
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+
+                        <div>
+                            <div class="section-header">
+                                <h1 style="font-weight: 600">Answer Paper Info :</h1>
+                            </div>
+                            <div class="row row-cols-2">
+                                <div class="col">
+                                    <label>Answer Paper ID : </label> <br>
+                                    <input type="text" placeholder="AID" name="AnsID" required>
+                                </div>
+                                <div class="col">
+                                    <label>Choose Marking Pattern : </label>
+                                    <br>
+                                    <select name="pattern" required>
+                                        <option value="">Select Pattern</option>
+                                        <option value="Pattern 1">Pattern1</option>
+                                        <option value="Pattern 2">Pattern2</option>
+                                        <option value="Pattern 3">Pattern3</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label>Upload Model Answers : </label>
+                                    <br>
+                                    <input type="file" name="file" placeholder="Model Ans PDF" name="modelAns">
+                                </div>
+                                <div class="col">
+                                    <label>Upload Student AnswerPaper : </label>
+                                    <br>
+                                    <input type="file" name="file" placeholder="Ans PDF" name="studentAns" required>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="loading-spinner" id="loadingSpinner">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Checking your paper, please wait...</p>
+                            <div class="fake-checking-animation"></div>
+                        </div>
+                        <button type="submit" class="submit-btn" id="submitBtn">Check Paper</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reportModalLabel">Paper Check Report</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body report-animation" id="reportContent">
+                    <!-- Report content will be inserted here by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="downloadReportBtn">Download Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('datetime').textContent = now.toLocaleDateString('en-US', options);
+        }
+        
+        // Update time immediately and then every second
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        // Generate fake report data
+        function generateFakeReport(formData) {
+            const sections = parseInt(formData.get('sectionNo'));
+            const subquestions = parseInt(formData.get('subquestionsNo'));
+            
+            // Generate random scores
+            const totalScore = Math.floor(Math.random() * 41) + 60; // 60-100
+            const plagiarismScore = Math.floor(Math.random() * 21); // 0-20%
+            const grammarScore = Math.floor(Math.random() * 31) + 70; // 70-100%
+            const contentScore = Math.floor(Math.random() * 31) + 70; // 70-100%
+            
+            // Generate section scores
+            const sectionScores = [];
+            for (let i = 0; i < sections; i++) {
+                sectionScores.push({
+                    name: `Section ${i+1}`,
+                    score: Math.floor(Math.random() * 31) + 70 // 70-100
+                });
+            }
+            
+            // Generate checking results
+            const checks = [
+                { name: "Plagiarism Check", status: plagiarismScore < 10 ? "pass" : (plagiarismScore < 15 ? "warning" : "fail"), details: plagiarismScore < 10 ? "No significant plagiarism detected" : (plagiarismScore < 15 ? "Minor similarities detected" : "Significant plagiarism detected") },
+                { name: "Grammar Check", status: grammarScore > 85 ? "pass" : (grammarScore > 75 ? "warning" : "fail"), details: grammarScore > 85 ? "Excellent grammar" : (grammarScore > 75 ? "Minor grammar issues" : "Multiple grammar errors") },
+                { name: "Content Relevance", status: contentScore > 80 ? "pass" : (contentScore > 70 ? "warning" : "fail"), details: contentScore > 80 ? "Highly relevant content" : (contentScore > 70 ? "Moderately relevant" : "Content relevance issues") },
+                { name: "Answer Structure", status: Math.random() > 0.3 ? "pass" : "warning", details: Math.random() > 0.3 ? "Well-structured answers" : "Some structural issues" },
+                { name: "Reference Formatting", status: Math.random() > 0.4 ? "pass" : "warning", details: Math.random() > 0.4 ? "Properly formatted references" : "Reference formatting issues" }
+            ];
+            
+            // Generate recommendations
+            const recommendations = [];
+            if (plagiarismScore > 10) {
+                recommendations.push("Consider rephrasing sections with high similarity to source materials.");
+            }
+            if (grammarScore < 80) {
+                recommendations.push("Review grammar and sentence structure for improved clarity.");
+            }
+            if (contentScore < 80) {
+                recommendations.push("Ensure all answers directly address the question requirements.");
+            }
+            if (recommendations.length === 0) {
+                recommendations.push("Paper demonstrates strong understanding of the subject matter. Continue with current approach.");
+            }
+            
+            return {
+                queId: formData.get('queId'),
+                ansId: formData.get('AnsID'),
+                pattern: formData.get('pattern'),
+                totalScore,
+                plagiarismScore,
+                grammarScore,
+                contentScore,
+                sectionScores,
+                checks,
+                recommendations
+            };
+        }
+        
+        // Generate HTML for the report
+        function generateReportHTML(reportData) {
+            return `
+                <div class="report-section">
+                    <h4>Paper Information</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Question Paper ID:</strong> ${reportData.queId}</p>
+                            <p><strong>Answer Paper ID:</strong> ${reportData.ansId}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Marking Pattern:</strong> ${reportData.pattern}</p>
+                            <p><strong>Report Generated:</strong> ${new Date().toLocaleString()}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="report-section">
+                    <h4>Overall Score</h4>
+                    <div class="score-card">
+                        <div class="score-value">${reportData.totalScore}/100</div>
+                        <div class="score-label">Total Score</div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: ${reportData.totalScore}%" aria-valuenow="${reportData.totalScore}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="report-section">
+                    <h4>Detailed Analysis</h4>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="score-card">
+                                <div class="score-value">${reportData.plagiarismScore}%</div>
+                                <div class="score-label">Similarity Index</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="score-card">
+                                <div class="score-value">${reportData.grammarScore}%</div>
+                                <div class="score-label">Grammar Score</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="score-card">
+                                <div class="score-value">${reportData.contentScore}%</div>
+                                <div class="score-label">Content Score</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                ${reportData.sectionScores.length > 0 ? `
+                <div class="report-section">
+                    <h4>Section Scores</h4>
+                    ${reportData.sectionScores.map(section => `
+                        <div class="check-item">
+                            <span>${section.name}</span>
+                            <span>${section.score}/100</span>
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+                
+                <div class="report-section">
+                    <h4>Quality Checks</h4>
+                    ${reportData.checks.map(check => `
+                        <div class="check-item">
+                            <div>
+                                <strong>${check.name}</strong>
+                                <div class="text-muted small">${check.details}</div>
+                            </div>
+                            <span class="check-status status-${check.status}">${check.status.toUpperCase()}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div class="report-section">
+                    <h4>Recommendations</h4>
+                    <ul>
+                        ${reportData.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="report-footer">
+                    <p>This report was automatically generated by PaperPro's AI checking system.</p>
+                </div>
+            `;
+        }
+        
+        // Handle form submission
+        document.getElementById('paperCheckForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            
+            // Show loading spinner
+            submitBtn.style.display = 'none';
+            loadingSpinner.style.display = 'block';
+            
+            // Simulate processing delay
+            setTimeout(() => {
+                // Generate fake report
+                const reportData = generateFakeReport(formData);
+                const reportHTML = generateReportHTML(reportData);
+                
+                // Display report in modal
+                document.getElementById('reportContent').innerHTML = reportHTML;
+                const reportModal = new bootstrap.Modal(document.getElementById('reportModal'));
+                reportModal.show();
+                
+                // Hide loading spinner and show submit button again
+                loadingSpinner.style.display = 'none';
+                submitBtn.style.display = 'block';
+            }, 2000);
+        });
+        
+        // Handle download report button
+        document.getElementById('downloadReportBtn').addEventListener('click', function() {
+            alert('Report download functionality would be implemented here in a real application.');
+        });
+    </script>
+</body>
 </html>

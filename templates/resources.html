@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - PaperPro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --info-color: #17a2b8;
+        }
+
+        body {
+            font-family: 'PT Serif', serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cont {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sideBar {
+            width: 280px;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cont2 {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px 10px 0 0 !important;
+            font-weight: 600;
+        }
+
+        .resource-card {
+            border-left: 4px solid var(--secondary-color);
+            height: 100%;
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .resource-category {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .category-title {
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+
+        .btn-outline-primary {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+
+        .search-input {
+            padding-left: 2.5rem;
+        }
+
+        .filter-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .stats-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .stats-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .stats-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .resource-meta {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--warning-color);
+            color: white;
+        }
+
+        .progress {
+            height: 8px;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <!-- Sidebar -->
+        <div class="sideBar">
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 100%; height: 100%">
+                <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto p-0 text-white text-decoration-none">
+                    <h1>Paper<span style="color: gold">Pro</span></h1>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/home" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/home"></use></svg>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mytask" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/mytask"></use></svg>
+                            My Tasks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/papercheck" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/papercheck"></use></svg>
+                            Paper Check
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/checkedpaper" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/checkedpaper"></use></svg>
+                            Checked Papers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/analysis" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/analysis"></use></svg>
+                            Analysis
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/resources" class="nav-link active">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/resources"></use></svg>
+                            Resources
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong>aditya</strong>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <div class="navbar">
+                <h1 style="color: rgb(255, 255, 255); margin-left: 2rem; font-weight: 700;">Resources Library</h1>
+                <div id="datetime-box">
+                    <p id="datetime"></p>
+                </div>
+            </div>
+            <div class="cont2">
+                <h2 class="page-title">Learning Resources & Materials</h2>
+                
+                <!-- Statistics Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="stats-value text-primary">142</div>
+                            <div class="stats-label">Total Resources</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="stats-value text-success">86</div>
+                            <div class="stats-label">Downloaded</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="stats-value text-info">12</div>
+                            <div class="stats-label">New This Month</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="stats-value text-warning">8</div>
+                            <div class="stats-label">Featured</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="filter-section">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="search-box">
+                                <span class="search-icon"><i class="fas fa-search"></i></span>
+                                <input type="text" class="form-control search-input" placeholder="Search resources...">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex gap-2">
+                                <select class="form-select">
+                                    <option selected>All Categories</option>
+                                    <option value="guides">Marking Guides</option>
+                                    <option value="templates">Templates</option>
+                                    <option value="rubrics">Rubrics</option>
+                                    <option value="research">Research Papers</option>
+                                    <option value="tools">Assessment Tools</option>
+                                </select>
+                                <select class="form-select">
+                                    <option selected>All Formats</option>
+                                    <option value="pdf">PDF</option>
+                                    <option value="doc">Word Document</option>
+                                    <option value="video">Video</option>
+                                    <option value="link">External Link</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="d-flex flex-wrap gap-2">
+                                <button class="btn btn-outline-primary btn-sm active">All Resources</button>
+                                <button class="btn btn-outline-primary btn-sm">Recently Added</button>
+                                <button class="btn btn-outline-primary btn-sm">Most Popular</button>
+                                <button class="btn btn-outline-primary btn-sm">My Downloads</button>
+                                <button class="btn btn-outline-primary btn-sm">Featured</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Resources -->
+                <div class="resource-category">
+                    <h3 class="category-title"><i class="fas fa-star me-2"></i>Featured Resources</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <span class="badge featured-badge">Featured</span>
+                                    <div class="resource-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <h5 class="card-title">Comprehensive Marking Guide</h5>
+                                    <p class="card-text">Complete guide to effective paper marking with examples and best practices.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span><i class="fas fa-file me-1"></i> PDF</span> • 
+                                        <span><i class="fas fa-download me-1"></i> 142 downloads</span> • 
+                                        <span><i class="fas fa-calendar me-1"></i> Updated: 2024-05-10</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-primary btn-sm"><i class="fas fa-download me-1"></i> Download</button>
+                                        <button class="btn btn-outline-primary btn-sm"><i class="fas fa-eye me-1"></i> Preview</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <span class="badge featured-badge">Featured</span>
+                                    <div class="resource-icon">
+                                        <i class="fas fa-video"></i>
+                                    </div>
+                                    <h5 class="card-title">Effective Assessment Strategies</h5>
+                                    <p class="card-text">Video series on modern assessment techniques and student evaluation.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span><i class="fas fa-video me-1"></i> Video Series</span> • 
+                                        <span><i class="fas fa-download me-1"></i> 89 downloads</span> • 
+                                        <span><i class="fas fa-clock me-1"></i> 45 min</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-primary btn-sm"><i class="fas fa-play me-1"></i> Watch</button>
+                                        <button class="btn btn-outline-primary btn-sm"><i class="fas fa-info-circle me-1"></i> Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <span class="badge featured-badge">Featured</span>
+                                    <div class="resource-icon">
+                                        <i class="fas fa-clipboard-list"></i>
+                                    </div>
+                                    <h5 class="card-title">Rubric Template Collection</h5>
+                                    <p class="card-text">Collection of customizable rubrics for various subjects and assessment types.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span><i class="fas fa-file-word me-1"></i> DOCX</span> • 
+                                        <span><i class="fas fa-download me-1"></i> 203 downloads</span> • 
+                                        <span><i class="fas fa-edit me-1"></i> Editable</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-primary btn-sm"><i class="fas fa-download me-1"></i> Download</button>
+                                        <button class="btn btn-outline-primary btn-sm"><i class="fas fa-edit me-1"></i> Customize</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marking Guides -->
+                <div class="mt-4">
+                    <h3 class="category-title" style="color: var(--primary-color);"><i class="fas fa-book me-2"></i>Marking Guides & Manuals</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <h5 class="card-title">Mathematics Assessment Guide</h5>
+                                    <p class="card-text">Step-by-step guide for evaluating mathematics papers with problem-solving focus.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span class="badge bg-primary">PDF</span>
+                                        <span class="badge bg-info">Mathematics</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm w-100"><i class="fas fa-download me-1"></i> Download Guide</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-flask"></i>
+                                    </div>
+                                    <h5 class="card-title">Science Practical Evaluation</h5>
+                                    <p class="card-text">Manual for assessing science practical exams and laboratory reports.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span class="badge bg-primary">PDF</span>
+                                        <span class="badge bg-info">Science</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm w-100"><i class="fas fa-download me-1"></i> Download Guide</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-pen-fancy"></i>
+                                    </div>
+                                    <h5 class="card-title">Essay Marking Handbook</h5>
+                                    <p class="card-text">Comprehensive handbook for evaluating essays across different subjects.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span class="badge bg-primary">PDF</span>
+                                        <span class="badge bg-info">Language Arts</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm w-100"><i class="fas fa-download me-1"></i> Download Guide</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Templates & Tools -->
+                <div class="mt-4">
+                    <h3 class="category-title" style="color: var(--primary-color);"><i class="fas fa-tools me-2"></i>Templates & Assessment Tools</h3>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-table"></i>
+                                    </div>
+                                    <h5 class="card-title">Score Sheet Templates</h5>
+                                    <p class="card-text">Customizable score sheets for various exam formats and subjects.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span class="badge bg-success">Excel</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm w-100">Download</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                    <h5 class="card-title">Performance Analytics</h5>
+                                    <p class="card-text">Templates for tracking and analyzing student performance over time.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span class="badge bg-success">Excel</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm w-100">Download</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <h5 class="card-title">Feedback Comment Bank</h5>
+                                    <p class="card-text">Collection of constructive feedback comments for various subjects.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span class="badge bg-warning">DOCX</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm w-100">Download</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-check-double"></i>
+                                    </div>
+                                    <h5 class="card-title">Quality Checklist</h5>
+                                    <p class="card-text">Comprehensive checklist for ensuring marking quality and consistency.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span class="badge bg-warning">DOCX</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm w-100">Download</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research & Best Practices -->
+                <div class="mt-4">
+                    <h3 class="category-title" style="color: var(--primary-color);"><i class="fas fa-university me-2"></i>Research & Best Practices</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Modern Assessment Techniques</h5>
+                                    <p class="card-text">Research paper on contemporary assessment methods and their effectiveness.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span class="badge bg-primary">PDF</span>
+                                        <span class="badge bg-secondary">Research</span>
+                                        <span>15 pages</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <button class="btn btn-outline-primary btn-sm">Read Paper</button>
+                                        <small class="text-muted">Published: 2023</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card resource-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Bias Reduction in Marking</h5>
+                                    <p class="card-text">Study on identifying and reducing unconscious bias in paper evaluation.</p>
+                                    <div class="resource-meta mb-3">
+                                        <span class="badge bg-primary">PDF</span>
+                                        <span class="badge bg-secondary">Research</span>
+                                        <span>22 pages</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <button class="btn btn-outline-primary btn-sm">Read Paper</button>
+                                        <small class="text-muted">Published: 2024</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Resource Section -->
+                <div class="card mt-5">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-cloud-upload-alt me-2"></i>Share Your Resources</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Have a useful resource to share with the PaperPro community? Upload it here!</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Resource Title</label>
+                                    <input type="text" class="form-control" placeholder="Enter resource title">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" rows="3" placeholder="Describe your resource"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Category</label>
+                                    <select class="form-select">
+                                        <option selected>Select category</option>
+                                        <option>Marking Guide</option>
+                                        <option>Template</option>
+                                        <option>Rubric</option>
+                                        <option>Research</option>
+                                        <option>Tool</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Upload File</label>
+                                    <input type="file" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success"><i class="fas fa-upload me-1"></i> Upload Resource</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('datetime').textContent = now.toLocaleDateString('en-US', options);
+        }
+        
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        // Search functionality
+        document.querySelector('.search-input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.resource-card').forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const description = card.querySelector('.card-text').textContent.toLowerCase();
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.parentElement.style.display = '';
+                } else {
+                    card.parentElement.style.display = 'none';
+                }
+            });
+        });
+
+        // Filter buttons
+        document.querySelectorAll('.btn-outline-primary.btn-sm').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.btn-outline-primary.btn-sm').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Download buttons
+        document.querySelectorAll('.btn-primary, .btn-outline-primary').forEach(btn => {
+            if (btn.textContent.includes('Download') || btn.textContent.includes('Watch') || btn.textContent.includes('Read')) {
+                btn.addEventListener('click', function() {
+                    const resourceTitle = this.closest('.card-body').querySelector('.card-title').textContent;
+                    alert(`Thank you for accessing: "${resourceTitle}". The download will begin shortly.`);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
